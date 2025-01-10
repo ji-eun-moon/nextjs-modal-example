@@ -2,26 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+button {
+  @apply bg-orange-500 px-4 py-2 rounded-2xl text-white font-semibold w-fit text-base;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.modal-overlay {
+  @apply fixed inset-0 flex items-center justify-center bg-black bg-opacity-70;
+}
+
+.modal-body {
+  @apply border rounded-xl bg-white border-gray-200 min-w-[450px] p-10 flex justify-center flex-col gap-2 items-center;
+}
+
+@layer base {
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  @keyframes slideOutRight {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOutLeft {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.5s ease forwards;
+  }
+
+  .slide-out-right {
+    animation: slideOutRight 0.5s ease forwards;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.5s ease forwards;
+  }
+
+  .slide-out-left {
+    animation: slideOutLeft 0.5s ease forwards;
   }
 }
