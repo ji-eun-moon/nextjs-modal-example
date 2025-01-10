@@ -23,7 +23,7 @@ function CompareModals() {
   };
 
   return (
-    <div className="relative flex flex-col gap-4 text-5xl font-extrabold">
+    <div className="relative flex flex-col gap-4">
       <p>Parent Style: text-5xl, font-extrabold</p>
       <button onClick={() => setIsBasicModalOpen(true)}>
         Open Basic Modal
